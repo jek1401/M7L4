@@ -33,6 +33,7 @@ python registration.py
 
 ### Тестирование
 ![image](https://github.com/user-attachments/assets/f7cbc475-b061-4a65-b841-19ba9a106398)
+![image](https://github.com/user-attachments/assets/e1d226b7-9de0-48c6-aa9e-1e00aaec9fc0)
 
 Программа включает unit тесты, написанные с использованием библиотеки pytest. Для запуска тестов убедитесь, что у вас установлен pytest, если нет, установите его с помощью pip:
 ```bash
@@ -44,3 +45,4 @@ pip install pytest
 pytest
 ```
 ## Автор
+Давид
