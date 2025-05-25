@@ -14,14 +14,26 @@ def create_db():
         ''')
         conn.commit()
 
+
 def add_user(username, email, password):
+    """Добавляет нового пользователя в базу данных.
+    Возвращает True при успешном добавлении, False при ошибке."""
+    if not username or not email or not password:
+        return False
+        
     try:
         with sqlite3.connect(DB_NAME) as conn:
             cursor = conn.cursor()
-            cursor.execute('INSERT INTO users (username, email, password) VALUES (?, ?, ?)', (username, email, password))
+            cursor.execute(
+                'INSERT INTO users (username, email, password) VALUES (?, ?, ?)',
+                (username, email, password)
+            )
             conn.commit()
-        return True
+            return True
     except sqlite3.IntegrityError:
+        return False
+    except Exception as e:
+        print(f"Ошибка при добавлении пользователя: {e}")
         return False
 
 def authenticate_user(username, password):
